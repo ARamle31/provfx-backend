@@ -6,7 +6,13 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: ['https://aramle31.github.io', 'http://localhost:5173', 'http://localhost:3000'],
+    credentials: true
+}));
+
+// Keep-alive health check endpoint
+app.get('/health', (req, res) => res.json({ status: 'ok', timestamp: Date.now() }));
 app.use(express.json({ limit: '500mb' }));
 app.use(express.urlencoded({ limit: '500mb', extended: true }));
 
