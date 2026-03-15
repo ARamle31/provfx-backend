@@ -1,0 +1,6 @@
+node_modules/
+uploads/
+cloud.db
+*.db
+.env
+dump.json

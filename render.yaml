@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: provfx-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: BASE_URL
+        generateValue: false
+        value: https://provfx-backend.onrender.com
+      - key: NODE_ENV
+        value: production
